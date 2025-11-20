@@ -1,0 +1,15 @@
+Column Name,Description,API Field Name,Data Type
+Trip ID,The MetroBike trip's unique ID.,trip_id,Number
+Membership or Pass Type,The membership or pass type of the MetroBike user. More info at : https://austin.bcycle.com/passes,membership_type,Text
+Bicycle ID,The MetroBike's ID that was rented during the trip,bicycle_id,Text
+Bike Type,The type of bicycle used for the trip,bike_type,Text
+Checkout Datetime,The date and time that the bike was checked out from the MetroBike kiosk.,checkout_datetime,Floating Timestamp
+Checkout Date,The date the bike was checked out from the kiosk.,checkout_date,Floating Timestamp
+Checkout Time,The time the bike was checked out for the trip.,checkout_time,Text
+Checkout Kiosk ID,The Kiosk ID of the Kiosk that was used to checkout the bicycle.,checkout_kiosk_id,Text
+Checkout Kiosk,The location of the checkout Kiosk based on its nearby cross streets.,checkout_kiosk,Text
+Return Kiosk ID,The ID of the Kiosk that was used to return the bicycle.,return_kiosk_id,Text
+Return Kiosk,The location of the Kiosk to return the bicycle. Based on the location's the nearby cross-streets.,return_kiosk,Text
+Trip Duration Minutes,The total number of minutes that the bicycle was checked out.,trip_duration_minutes,Number
+Month,The calendar month on which the trip began,month,Text
+Year,The year in which the trip began,year,Number
