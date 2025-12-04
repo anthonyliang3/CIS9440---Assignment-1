@@ -8,9 +8,12 @@ bucket_name = 'cis9440-assignment1-bikedata'
 file_name = 'austin_metrobike.csv'
 dataset_id = 'austin_data'
 table_id = 'trips_table'
-url = "https://data.austintexas.gov/resource/tyfh-5r8s.json"
+url = "https://data.austintexas.gov/resource/tyfh-5r8s.json?$limit=20000"
 
 df = pd.read_json(url)
+
+df.dropna(subset=['trip_id', 'trip_duration_minutes', 'checkout_datetime', 'checkout_date', 'checkout_time'], inplace=True)
+
 df.to_csv(file_name, index=False)
 
 auth.authenticate_user()
@@ -31,9 +34,9 @@ bucket_uri = f'gs://{bucket_name}/{file_name}'
 client.create_dataset(full_dataset_ref, exists_ok=True)
 
 job_config = bigquery.LoadJobConfig(
-    autodetect=True,                
-    skip_leading_rows=1,             
-    write_disposition="WRITE_TRUNCATE" 
+    autodetect=True,
+    skip_leading_rows=1,
+    write_disposition="WRITE_TRUNCATE"
 )
 
 load_job = client.load_table_from_uri(bucket_uri, full_table_ref, job_config=job_config)
